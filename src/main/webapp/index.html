@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $("#findAll").click(function () {
+            $.ajax({
+                url:"student/findAll",
+                type:"get",
+                dataType:"json",
+                success:function (res) {
+                    console.log(res);
+                },
+                error:function () {
+                    alert("请求失败!");
+                }
+            })
+        })
+
+        $("#insert").click(function () {
+            $.ajax({
+                url:"student/insertStu",
+                type:"post",
+                data:{"stuNo":1111,"name":"王二麻子","sex":"女","telephone":"12323139999","email":"957341482@qq.com","gradeId":1,"stuIdCard":"C://file"},
+                dataType:"json",
+                success:function (res) {
+                    console.log(res);
+                },
+                error:function () {
+                    alert("请求失败!");
+                }
+            })
+        })
+    })
+</script>
+<body>
+    <button id="findAll">点击查询全部</button>
+    <button id="insert">点击增加学生</button>
+
+</body>
+</html>
